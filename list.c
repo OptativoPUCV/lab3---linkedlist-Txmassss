@@ -119,7 +119,8 @@ void pushCurrent(List * list, void * data)
   list->current = nuevo;
 }
 
-void * popFront(List * list) {
+void * popFront(List * list) 
+{
     list->current = list->head;
     return popCurrent(list);
 }
@@ -129,8 +130,27 @@ void * popBack(List * list) {
     return popCurrent(list);
 }
 
-void * popCurrent(List * list) {
+void * popCurrent(List * list) 
+{
+  if(list->current == NULL)
     return NULL;
+  
+  void *data = list->current->data;
+  Node *nodeToRemove = list->current;
+  if(list->current->prev != NULL)
+    list->current->prev->next = list->current->next;
+
+  else
+    list->head = list->current->next;
+
+  if(list->current->next != NULL)
+    list->current->next->prev = list->current->prev;
+  else
+    list->tail = list->current->prev;
+
+  list->current = list->current->prev;
+  free(nodeToRemove);
+  return NULL;
 }
 
 void cleanList(List * list) {
