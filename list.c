@@ -150,7 +150,7 @@ void * popCurrent(List * list)
 
   list->current = list->current->prev;
   free(nodeToRemove);
-  return NULL;
+  return data;
 }
 
 void cleanList(List * list) 
