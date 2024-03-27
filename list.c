@@ -135,7 +135,7 @@ void * popCurrent(List * list)
   if(list->current == NULL)
     return NULL;
   
-  void *data = list->current->data;
+  void * data = list->current->data;
   Node *nodeToRemove = list->current;
   if(list->current->prev != NULL)
     list->current->prev->next = list->current->next;
@@ -153,8 +153,8 @@ void * popCurrent(List * list)
   return NULL;
 }
 
-void cleanList(List * list) {
-    while (list->head != NULL) {
+void cleanList(List * list) 
+{
+    while (list->head != NULL) 
         popFront(list);
-    }
 }

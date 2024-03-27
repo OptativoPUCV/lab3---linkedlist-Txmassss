@@ -55,3 +55,14 @@ list.c:138:9: error: unused variable ‘data’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 d5fd9f8
+Wed 27 Mar 2024 02:45:05 PM UTC: 
+ list.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘popCurrent’:
+list.c:138:10: error: unused variable ‘data’ [-Werror=unused-variable]
+  138 |   void * data = list->current->data;
+      |          ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+af9e37f
